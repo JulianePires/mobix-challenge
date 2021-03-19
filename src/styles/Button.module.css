@@ -1,0 +1,16 @@
+.button {
+  align-self: center;
+  width: 12rem;
+  height: 2.33rem;
+  background-color: var(--gray) !important;
+  color: #dadada !important;
+  border-radius: 11.11rem !important;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.button:hover {
+  background-color: #c4c4c4 !important;
+  color: var(--gray) !important;
+}

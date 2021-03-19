@@ -1,4 +1,4 @@
-import { Button } from "./components/Button";
+import { DisplayButton } from "./components/DisplayButton";
 import { Header } from "./components/Header";
 import { Table } from "./components/Table";
 import { PermissionProvider } from "./context/PermissionContext";
@@ -8,10 +8,10 @@ export function App() {
   return (
     <>
       <Header />
-      <div>
+      <div className="content">
         <PermissionProvider>
           <Table />
-          <Button />
+          <DisplayButton />
         </PermissionProvider>
       </div>
     </>

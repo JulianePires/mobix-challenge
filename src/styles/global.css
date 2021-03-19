@@ -1,8 +1,7 @@
 :root {
   --white: #f8f8f8;
   --black: #000;
-  --gray: #c4c4c4;
-  --light-grey: ##dadada;
+  --gray: #6b7375;
 }
 
 * {
@@ -16,4 +15,11 @@ body {
   font-size: 18px;
   background: var(--white);
   color: var(--black);
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
