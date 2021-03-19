@@ -1,6 +1,6 @@
 import { DisplayButton } from "./components/DisplayButton";
 import { Header } from "./components/Header";
-import { Table } from "./components/Table";
+import { PermissionTable } from "./components/PermissionTable";
 import { PermissionProvider } from "./context/PermissionContext";
 import "./styles/global.css";
 
@@ -10,7 +10,7 @@ export function App() {
       <Header />
       <div className="content">
         <PermissionProvider>
-          <Table />
+          <PermissionTable />
           <DisplayButton />
         </PermissionProvider>
       </div>
