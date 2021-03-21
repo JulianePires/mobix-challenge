@@ -8,6 +8,7 @@
 .container h1 {
   font-weight: 500;
   font-size: 1.44rem;
+  height: 1rem;
 }
 
 @media (max-width: 375px) {

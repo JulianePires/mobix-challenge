@@ -6,10 +6,10 @@ interface PermissionContextData {
   criar: boolean;
   editar: boolean;
   deletar: boolean;
-  handleAddPermission: (permission: string | null) => void;
-  handleRemovePermission: (permission: string | null) => void;
   handleCheckAllInColumn: (permission: string) => void;
   displayPermissions: () => void;
+  updatePermissions: () => void;
+  clearPermissions: () => void;
 }
 
 interface PermissionProviderProps {
@@ -26,22 +26,6 @@ export function PermissionProvider({ children }: PermissionProviderProps) {
   const [editar, setEditar] = useState(false);
   const [deletar, setDeletar] = useState(false);
 
-  function handleAddPermission(permission: string | null) {
-    if (permission === "") return;
-    if (permission !== null) {
-      const perm = permission;
-      setPermissions((oldState) => [...oldState, perm]);
-    }
-  }
-
-  function handleRemovePermission(permission: string | null) {
-    if (permission === "") return;
-    const filteredPermissions = permissions.filter(
-      (perm) => permission !== perm
-    );
-    setPermissions(filteredPermissions);
-  }
-
   function handleCheckAllInColumn(permission: string) {
     permission === "verdetalhes"
       ? setVerDetalhes(!verDetalhes)
@@ -54,8 +38,22 @@ export function PermissionProvider({ children }: PermissionProviderProps) {
       : setDeletar(!deletar);
   }
 
-  function displayPermissions() {
+  async function displayPermissions() {
     console.log(permissions);
+  }
+
+  function clearPermissions() {
+    setPermissions([]);
+  }
+
+  function updatePermissions() {
+    const checks = document.querySelectorAll("input");
+    checks.forEach((check) => {
+      const perm = check.attributes[3].nodeValue;
+      if (check.checked === true) {
+        perm !== null && setPermissions((oldState) => [...oldState, perm]);
+      }
+    });
   }
 
   return (
@@ -66,10 +64,10 @@ export function PermissionProvider({ children }: PermissionProviderProps) {
         criar,
         editar,
         deletar,
-        handleAddPermission,
-        handleRemovePermission,
         handleCheckAllInColumn,
         displayPermissions,
+        updatePermissions,
+        clearPermissions,
       }}
     >
       {children}

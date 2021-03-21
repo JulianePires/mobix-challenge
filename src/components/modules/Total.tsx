@@ -33,7 +33,7 @@ export function Total() {
             checked={verListagem}
             color="default"
             onChange={() => handleCheckAllInColumn("verlistagem")}
-            inputProps={{ "aria-label": "verListagem" }}
+            inputProps={{ "aria-label": "all verListagem" }}
           />
         </TableCell>
         <TableCell align="center">
@@ -41,7 +41,7 @@ export function Total() {
             checked={verDetalhes}
             color="default"
             onChange={() => handleCheckAllInColumn("verdetalhes")}
-            inputProps={{ "aria-label": "verDetalhes" }}
+            inputProps={{ "aria-label": "all verDetalhes" }}
           />
         </TableCell>
         <TableCell align="center">
@@ -49,7 +49,7 @@ export function Total() {
             checked={criar}
             color="default"
             onChange={() => handleCheckAllInColumn("criar")}
-            inputProps={{ "aria-label": "criar" }}
+            inputProps={{ "aria-label": "all criar" }}
           />
         </TableCell>
         <TableCell align="center">
@@ -57,7 +57,7 @@ export function Total() {
             checked={editar}
             color="default"
             onChange={() => handleCheckAllInColumn("editar")}
-            inputProps={{ "aria-label": "editar" }}
+            inputProps={{ "aria-label": "all editar" }}
           />
         </TableCell>
         <TableCell align="center">
@@ -65,7 +65,7 @@ export function Total() {
             checked={deletar}
             color="default"
             onChange={() => handleCheckAllInColumn("deletar")}
-            inputProps={{ "aria-label": "deletar" }}
+            inputProps={{ "aria-label": "all deletar" }}
           />
         </TableCell>
       </TableRow>

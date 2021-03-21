@@ -1,5 +1,6 @@
 .button {
   align-self: center;
+  margin: 1rem !important;
   width: 12rem;
   height: 2.33rem;
   background-color: var(--gray) !important;

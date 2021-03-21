@@ -1,13 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-lone-blocks */
-import { useContext, useEffect, useState } from "react";
-
-import { PermissionContext } from "../../context/PermissionContext";
+import { useEffect, useState } from "react";
 
 import { TableCell, Checkbox } from "@material-ui/core";
 
 import styles from "../../styles/Table.module.css";
-import { createNull } from "typescript";
 
 interface SubmoduleProps {
   rowName: string;
@@ -19,60 +14,31 @@ interface SubmoduleProps {
 }
 
 export function Submodule(props: SubmoduleProps) {
-  const { handleAddPermission, handleRemovePermission } = useContext(
-    PermissionContext
-  );
-
-  const [verListagem, setVerlistagem] = useState(false);
+  const [verListagem, setVerListagem] = useState(false);
   const [verDetalhes, setVerDetalhes] = useState(false);
   const [criar, setCriar] = useState(false);
   const [editar, setEditar] = useState(false);
   const [deletar, setDeletar] = useState(false);
 
-  function handleSetListagemView(permName: string | null) {
-    {
-      verListagem === false
-        ? handleAddPermission(permName)
-        : handleRemovePermission(permName);
-    }
-    setVerlistagem(!verListagem);
-  }
+  useEffect(() => {
+    setVerListagem(props.moduleVerListagemCheck);
+  }, [props.moduleVerListagemCheck]);
 
-  function handleSetDetalhesView(permName: string | null) {
-    {
-      verDetalhes === false
-        ? handleAddPermission(permName)
-        : handleRemovePermission(permName);
-    }
-    setVerDetalhes(!verDetalhes);
-  }
+  useEffect(() => {
+    setVerDetalhes(props.moduleVerDetalhesCheck);
+  }, [props.moduleVerDetalhesCheck]);
 
-  function handleSetCriarView(permName: string | null) {
-    {
-      criar === false
-        ? handleAddPermission(permName)
-        : handleRemovePermission(permName);
-    }
-    setCriar(!criar);
-  }
+  useEffect(() => {
+    setCriar(props.moduleCriarCheck);
+  }, [props.moduleCriarCheck]);
 
-  function handleSetEditarView(permName: string | null) {
-    {
-      editar === false
-        ? handleAddPermission(permName)
-        : handleRemovePermission(permName);
-    }
-    setEditar(!editar);
-  }
+  useEffect(() => {
+    setEditar(props.moduleEditarCheck);
+  }, [props.moduleEditarCheck]);
 
-  function handleSetDeletarView(permName: string | null) {
-    {
-      deletar === false
-        ? handleAddPermission(permName)
-        : handleRemovePermission(permName);
-    }
-    setDeletar(!deletar);
-  }
+  useEffect(() => {
+    setDeletar(props.moduleDeletarCheck);
+  }, [props.moduleDeletarCheck]);
 
   return (
     <>
@@ -84,10 +50,10 @@ export function Submodule(props: SubmoduleProps) {
         <Checkbox
           checked={verListagem}
           color="default"
-          onChange={(e) => {
-            handleSetListagemView(e.target.attributes[3].nodeValue);
+          onChange={() => {
+            setVerListagem(!verListagem);
           }}
-          inputProps={{ "aria-label": props.rowName + ": ver-listagem" }}
+          inputProps={{ "aria-label": "ver-listagem " + props.rowName }}
           style={{ margin: "0 4.2rem" }}
         />
       </TableCell>
@@ -95,10 +61,10 @@ export function Submodule(props: SubmoduleProps) {
         <Checkbox
           checked={verDetalhes}
           color="default"
-          onChange={(e) => {
-            handleSetDetalhesView(e.target.attributes[3].nodeValue);
+          onChange={() => {
+            setVerDetalhes(!verDetalhes);
           }}
-          inputProps={{ "aria-label": props.rowName + ": ver-detalhes" }}
+          inputProps={{ "aria-label": "ver-detalhes " + props.rowName }}
           style={{ margin: "0 4.6rem" }}
         />
       </TableCell>
@@ -106,10 +72,10 @@ export function Submodule(props: SubmoduleProps) {
         <Checkbox
           checked={criar}
           color="default"
-          onChange={(e) => {
-            handleSetCriarView(e.target.attributes[3].nodeValue);
+          onChange={() => {
+            setCriar(!criar);
           }}
-          inputProps={{ "aria-label": props.rowName + ": criar" }}
+          inputProps={{ "aria-label": "criar " + props.rowName }}
           style={{ margin: "0 4.2rem" }}
         />
       </TableCell>
@@ -117,10 +83,10 @@ export function Submodule(props: SubmoduleProps) {
         <Checkbox
           checked={editar}
           color="default"
-          onChange={(e) => {
-            handleSetEditarView(e.target.attributes[3].nodeValue);
+          onChange={() => {
+            setEditar(!editar);
           }}
-          inputProps={{ "aria-label": props.rowName + ": editar" }}
+          inputProps={{ "aria-label": "editar " + props.rowName }}
           style={{ margin: "0 4.6rem" }}
         />
       </TableCell>
@@ -128,10 +94,10 @@ export function Submodule(props: SubmoduleProps) {
         <Checkbox
           checked={deletar}
           color="default"
-          onChange={(e) => {
-            handleSetDeletarView(e.target.attributes[3].nodeValue);
+          onChange={() => {
+            setDeletar(!deletar);
           }}
-          inputProps={{ "aria-label": props.rowName + ": deletar" }}
+          inputProps={{ "aria-label": "deletar " + props.rowName }}
           style={{ margin: "0 1rem 0 4.2rem" }}
         />
       </TableCell>

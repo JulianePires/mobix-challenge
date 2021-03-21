@@ -1,3 +1,4 @@
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { TableBody } from "@material-ui/core";
 import Table from "@material-ui/core/Table";
 import TableCell from "@material-ui/core/TableCell";
@@ -21,22 +22,43 @@ export function PermissionTable() {
     "Editar",
     "Deletar",
   ];
+
+  const theme = createMuiTheme({
+    overrides: {
+      MuiTable: {
+        root: {
+          fontWeight: 500,
+          fontSize: "18px",
+          lineHeight: "21px",
+        },
+      },
+      MuiTableCell: {
+        root: {
+          // Some CSS
+          borderBottom: "none",
+        },
+      },
+    },
+  });
+
   return (
-    <Table aria-label="collapsible table" className={styles.table}>
-      <TableHead>
-        <TableRow>
-          {columns.map((column) => (
-            <TableCell align="center">{column}</TableCell>
-          ))}
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <Total />
-        <Analise />
-        <Contas />
-        <Customizacao />
-        <Financeiro />
-      </TableBody>
-    </Table>
+    <ThemeProvider theme={theme}>
+      <Table aria-label="collapsible table" className={styles.table}>
+        <TableHead>
+          <TableRow>
+            {columns.map((column) => (
+              <TableCell align="center">{column}</TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <Total />
+          <Analise />
+          <Contas />
+          <Customizacao />
+          <Financeiro />
+        </TableBody>
+      </Table>
+    </ThemeProvider>
   );
 }

@@ -74,7 +74,7 @@ export default function Module(props: ModuleProps) {
             onChange={() => {
               setVerListagemChecked(!verListagemChecked);
             }}
-            inputProps={{ "aria-label": "verlistagem" }}
+            inputProps={{ "aria-label": "ver-listagem " + props.moduleTitle }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
@@ -85,7 +85,7 @@ export default function Module(props: ModuleProps) {
             onChange={() => {
               setVerDetalhesChecked(!verDetalhesChecked);
             }}
-            inputProps={{ "aria-label": "verDetalhes" }}
+            inputProps={{ "aria-label": "ver-detalhes " + props.moduleTitle }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
@@ -96,7 +96,7 @@ export default function Module(props: ModuleProps) {
             onChange={() => {
               setCriarChecked(!criarChecked);
             }}
-            inputProps={{ "aria-label": "criar" }}
+            inputProps={{ "aria-label": "criar " + props.moduleTitle }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
@@ -107,7 +107,7 @@ export default function Module(props: ModuleProps) {
             onChange={() => {
               setEditarChecked(!editarChecked);
             }}
-            inputProps={{ "aria-label": "editar" }}
+            inputProps={{ "aria-label": "editar " + props.moduleTitle }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
@@ -118,7 +118,7 @@ export default function Module(props: ModuleProps) {
             onChange={() => {
               setDeletarChecked(!deletarChecked);
             }}
-            inputProps={{ "aria-label": "deletar" }}
+            inputProps={{ "aria-label": "deletar " + props.moduleTitle }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
