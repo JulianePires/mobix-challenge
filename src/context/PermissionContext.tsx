@@ -1,10 +1,11 @@
-import { createContext, useState, ReactNode, useEffect } from "react";
-
-interface PermissionsProps {
-  permissionName: string;
-}
+import { createContext, useState, ReactNode } from "react";
 
 interface PermissionContextData {
+  verListagem: boolean;
+  verDetalhes: boolean;
+  criar: boolean;
+  editar: boolean;
+  deletar: boolean;
   handleAddPermission: (permission: string | null) => void;
   handleRemovePermission: (permission: string | null) => void;
   handleCheckAllInColumn: (permission: string) => void;
@@ -19,6 +20,11 @@ export const PermissionContext = createContext({} as PermissionContextData);
 
 export function PermissionProvider({ children }: PermissionProviderProps) {
   const [permissions, setPermissions] = useState<String[]>([]);
+  const [verListagem, setVerListagem] = useState(false);
+  const [verDetalhes, setVerDetalhes] = useState(false);
+  const [criar, setCriar] = useState(false);
+  const [editar, setEditar] = useState(false);
+  const [deletar, setDeletar] = useState(false);
 
   function handleAddPermission(permission: string | null) {
     if (permission === "") return;
@@ -37,18 +43,16 @@ export function PermissionProvider({ children }: PermissionProviderProps) {
   }
 
   function handleCheckAllInColumn(permission: string) {
-    // permission === "verdetalhes"
-    //   ? setVerdetalhes(!subVerDetalhes)
-    //   : permission === "verlistagem"
-    //   ? setVerlistagem(!subVerlistagem)
-    //   : permission === "criar"
-    //   ? setCriar(!subCriar)
-    //   : permission === "editar"
-    //   ? setEditar(!subEditar)
-    //   : setDeletar(!subDeletar);
+    permission === "verdetalhes"
+      ? setVerDetalhes(!verDetalhes)
+      : permission === "verlistagem"
+      ? setVerListagem(!verListagem)
+      : permission === "criar"
+      ? setCriar(!criar)
+      : permission === "editar"
+      ? setEditar(!editar)
+      : setDeletar(!deletar);
   }
-
-  function checkAllInModules() {}
 
   function displayPermissions() {
     console.log(permissions);
@@ -57,6 +61,11 @@ export function PermissionProvider({ children }: PermissionProviderProps) {
   return (
     <PermissionContext.Provider
       value={{
+        verListagem,
+        verDetalhes,
+        criar,
+        editar,
+        deletar,
         handleAddPermission,
         handleRemovePermission,
         handleCheckAllInColumn,

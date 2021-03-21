@@ -7,6 +7,7 @@ import styles from "../styles/Button.module.css";
 
 export function DisplayButton() {
   const { displayPermissions } = useContext(PermissionContext);
+
   return (
     <Button
       variant="contained"

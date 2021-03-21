@@ -1,72 +1,82 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-lone-blocks */
-import { TableCell, Checkbox } from "@material-ui/core";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+
 import { PermissionContext } from "../../context/PermissionContext";
 
+import { TableCell, Checkbox } from "@material-ui/core";
+
 import styles from "../../styles/Table.module.css";
+import { createNull } from "typescript";
 
 interface SubmoduleProps {
   rowName: string;
+  moduleVerListagemCheck: boolean;
+  moduleVerDetalhesCheck: boolean;
+  moduleCriarCheck: boolean;
+  moduleEditarCheck: boolean;
+  moduleDeletarCheck: boolean;
 }
 
 export function Submodule(props: SubmoduleProps) {
   const { handleAddPermission, handleRemovePermission } = useContext(
     PermissionContext
   );
+
   const [verListagem, setVerlistagem] = useState(false);
   const [verDetalhes, setVerDetalhes] = useState(false);
   const [criar, setCriar] = useState(false);
   const [editar, setEditar] = useState(false);
   const [deletar, setDeletar] = useState(false);
 
-  function handleSetListagemView(permission: string | null) {
+  function handleSetListagemView(permName: string | null) {
     {
       verListagem === false
-        ? handleAddPermission(permission)
-        : handleRemovePermission(permission);
+        ? handleAddPermission(permName)
+        : handleRemovePermission(permName);
     }
-
     setVerlistagem(!verListagem);
   }
 
-  function handleSetDetalhesView(permission: string | null) {
+  function handleSetDetalhesView(permName: string | null) {
     {
       verDetalhes === false
-        ? handleAddPermission(permission)
-        : handleRemovePermission(permission);
+        ? handleAddPermission(permName)
+        : handleRemovePermission(permName);
     }
     setVerDetalhes(!verDetalhes);
   }
 
-  function handleSetCriarView(permission: string | null) {
+  function handleSetCriarView(permName: string | null) {
     {
       criar === false
-        ? handleAddPermission(permission)
-        : handleRemovePermission(permission);
+        ? handleAddPermission(permName)
+        : handleRemovePermission(permName);
     }
     setCriar(!criar);
   }
 
-  function handleSetEditarView(permission: string | null) {
+  function handleSetEditarView(permName: string | null) {
     {
       editar === false
-        ? handleAddPermission(permission)
-        : handleRemovePermission(permission);
+        ? handleAddPermission(permName)
+        : handleRemovePermission(permName);
     }
     setEditar(!editar);
   }
 
-  function handleSetDeletarView(permission: string | null) {
+  function handleSetDeletarView(permName: string | null) {
     {
       deletar === false
-        ? handleAddPermission(permission)
-        : handleRemovePermission(permission);
+        ? handleAddPermission(permName)
+        : handleRemovePermission(permName);
     }
     setDeletar(!deletar);
   }
+
   return (
     <>
-      <TableCell align="left" className={styles.tableRowTiile}>
+      <TableCell align="left" className={styles.tableRowTitle}>
         {props.rowName}
       </TableCell>
 
@@ -78,7 +88,7 @@ export function Submodule(props: SubmoduleProps) {
             handleSetListagemView(e.target.attributes[3].nodeValue);
           }}
           inputProps={{ "aria-label": props.rowName + ": ver-listagem" }}
-          className={styles.tableCheckBox}
+          style={{ margin: "0 4.2rem" }}
         />
       </TableCell>
       <TableCell align="center">
@@ -89,7 +99,7 @@ export function Submodule(props: SubmoduleProps) {
             handleSetDetalhesView(e.target.attributes[3].nodeValue);
           }}
           inputProps={{ "aria-label": props.rowName + ": ver-detalhes" }}
-          className={styles.tableCheckBox}
+          style={{ margin: "0 4.6rem" }}
         />
       </TableCell>
       <TableCell align="center">
@@ -100,7 +110,7 @@ export function Submodule(props: SubmoduleProps) {
             handleSetCriarView(e.target.attributes[3].nodeValue);
           }}
           inputProps={{ "aria-label": props.rowName + ": criar" }}
-          className={styles.tableCheckBox}
+          style={{ margin: "0 4.2rem" }}
         />
       </TableCell>
       <TableCell align="center">
@@ -111,7 +121,7 @@ export function Submodule(props: SubmoduleProps) {
             handleSetEditarView(e.target.attributes[3].nodeValue);
           }}
           inputProps={{ "aria-label": props.rowName + ": editar" }}
-          className={styles.tableCheckBox}
+          style={{ margin: "0 4.6rem" }}
         />
       </TableCell>
       <TableCell align="center">
@@ -122,7 +132,7 @@ export function Submodule(props: SubmoduleProps) {
             handleSetDeletarView(e.target.attributes[3].nodeValue);
           }}
           inputProps={{ "aria-label": props.rowName + ": deletar" }}
-          className={styles.tableCheckBox}
+          style={{ margin: "0 1rem 0 4.2rem" }}
         />
       </TableCell>
     </>

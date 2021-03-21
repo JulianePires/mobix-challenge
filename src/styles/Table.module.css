@@ -3,3 +3,12 @@
   font-size: 18px;
   line-height: 21px;
 }
+
+.moduleCheckBox {
+  margin: 0 4rem !important;
+}
+
+.tableRowTitle {
+  padding-left: 0 !important;
+  width: 10.6rem !important;
+}

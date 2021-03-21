@@ -1,15 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { TableCell, Checkbox } from "@material-ui/core";
 import TableRow from "@material-ui/core/TableRow";
 import { PermissionContext } from "../../context/PermissionContext";
 
 export function Total() {
-  const [check, setCheck] = useState(false);
-  const { handleCheckAllInColumn } = useContext(PermissionContext);
-
-  function handleCheckModules() {
-    setCheck(!check);
-  }
+  const {
+    handleCheckAllInColumn,
+    verListagem,
+    verDetalhes,
+    criar,
+    editar,
+    deletar,
+  } = useContext(PermissionContext);
 
   return (
     <>
@@ -28,15 +30,15 @@ export function Total() {
         </TableCell>
         <TableCell align="center">
           <Checkbox
-            checked={check}
+            checked={verListagem}
             color="default"
-            onChange={() => handleCheckModules()}
+            onChange={() => handleCheckAllInColumn("verlistagem")}
             inputProps={{ "aria-label": "verListagem" }}
           />
         </TableCell>
         <TableCell align="center">
           <Checkbox
-            checked={check}
+            checked={verDetalhes}
             color="default"
             onChange={() => handleCheckAllInColumn("verdetalhes")}
             inputProps={{ "aria-label": "verDetalhes" }}
@@ -44,7 +46,7 @@ export function Total() {
         </TableCell>
         <TableCell align="center">
           <Checkbox
-            checked={check}
+            checked={criar}
             color="default"
             onChange={() => handleCheckAllInColumn("criar")}
             inputProps={{ "aria-label": "criar" }}
@@ -52,7 +54,7 @@ export function Total() {
         </TableCell>
         <TableCell align="center">
           <Checkbox
-            checked={check}
+            checked={editar}
             color="default"
             onChange={() => handleCheckAllInColumn("editar")}
             inputProps={{ "aria-label": "editar" }}
@@ -60,7 +62,7 @@ export function Total() {
         </TableCell>
         <TableCell align="center">
           <Checkbox
-            checked={check}
+            checked={deletar}
             color="default"
             onChange={() => handleCheckAllInColumn("deletar")}
             inputProps={{ "aria-label": "deletar" }}
