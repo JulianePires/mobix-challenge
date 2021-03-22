@@ -8,5 +8,5 @@ export function Customizacao() {
     "Contas",
   ];
 
-  return <Module moduleTitle="Customização" submodules={submodules} />;
+  return <Module name="customizacao" moduleTitle="Customização" submodules={submodules} />;
 }

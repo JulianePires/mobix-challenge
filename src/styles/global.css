@@ -24,3 +24,9 @@ body {
   justify-content: space-between;
   margin: 0 2.88rem;
 }
+
+@media (max-width: 1000px) {
+  body {
+    font-size: 90%;
+  }
+}

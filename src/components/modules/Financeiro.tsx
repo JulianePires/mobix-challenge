@@ -3,5 +3,5 @@ import Module from "./Module";
 export function Financeiro() {
   const submodules = ["Entradas"];
 
-  return <Module moduleTitle="Financeiro" submodules={submodules} />;
+  return <Module name="financeiro" moduleTitle="Financeiro" submodules={submodules} />;
 }

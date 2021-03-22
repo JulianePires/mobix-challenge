@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 
+import { PermissionContext } from "../../context/PermissionContext";
+
 import { TableCell, TableRow, Checkbox } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
@@ -9,9 +11,9 @@ import Collapse from "@material-ui/core/Collapse";
 import { Submodule } from "./Submodule";
 
 import styles from "../../styles/Table.module.css";
-import { PermissionContext } from "../../context/PermissionContext";
 
 interface ModuleProps {
+  name: string;
   moduleTitle: string;
   submodules: Array<string>;
 }
@@ -52,6 +54,7 @@ export default function Module(props: ModuleProps) {
       <TableRow>
         <TableCell>
           <IconButton
+            id={"expand-" + props.name}
             aria-label="expand row"
             size="small"
             onClick={() => setOpen(!open)}
@@ -69,56 +72,61 @@ export default function Module(props: ModuleProps) {
         </TableCell>
         <TableCell align="center">
           <Checkbox
+            id={"ver-listagem-" + props.name}
             checked={verListagemChecked}
             color="default"
             onChange={() => {
               setVerListagemChecked(!verListagemChecked);
             }}
-            inputProps={{ "aria-label": "ver-listagem " + props.moduleTitle }}
+            inputProps={{ "aria-label": "ver-listagem-" + props.name }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
         <TableCell align="center">
           <Checkbox
+            id={"ver-detalhes-" + props.name}
             checked={verDetalhesChecked}
             color="default"
             onChange={() => {
               setVerDetalhesChecked(!verDetalhesChecked);
             }}
-            inputProps={{ "aria-label": "ver-detalhes " + props.moduleTitle }}
+            inputProps={{ "aria-label": "ver-detalhes-" + props.name }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
         <TableCell align="center">
           <Checkbox
+            id={"criar-" + props.name}
             checked={criarChecked}
             color="default"
             onChange={() => {
               setCriarChecked(!criarChecked);
             }}
-            inputProps={{ "aria-label": "criar " + props.moduleTitle }}
+            inputProps={{ "aria-label": "criar-" + props.name }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
         <TableCell align="center">
           <Checkbox
+            id={"editar-" + props.name}
             checked={editarChecked}
             color="default"
             onChange={() => {
               setEditarChecked(!editarChecked);
             }}
-            inputProps={{ "aria-label": "editar " + props.moduleTitle }}
+            inputProps={{ "aria-label": "editar-" + props.name }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
         <TableCell align="center">
           <Checkbox
+            id={"deletar-" + props.name}
             checked={deletarChecked}
             color="default"
             onChange={() => {
               setDeletarChecked(!deletarChecked);
             }}
-            inputProps={{ "aria-label": "deletar " + props.moduleTitle }}
+            inputProps={{ "aria-label": "deletar-" + props.name }}
             className={styles.moduleCheckBox}
           />
         </TableCell>
@@ -130,6 +138,7 @@ export default function Module(props: ModuleProps) {
               <Collapse in={open} timeout="auto">
                 <Submodule
                   rowName={submodule}
+                  moduleName={props.name}
                   moduleVerListagemCheck={verListagemChecked}
                   moduleVerDetalhesCheck={verDetalhesChecked}
                   moduleCriarCheck={criarChecked}

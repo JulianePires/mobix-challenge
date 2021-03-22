@@ -7,11 +7,11 @@ import TableRow from "@material-ui/core/TableRow";
 
 import { Analise } from "./modules/Analise";
 import { Total } from "./modules/Total";
-
-import styles from "../styles/Table.module.css";
 import { Contas } from "./modules/Contas";
 import { Customizacao } from "./modules/Customizacao";
 import { Financeiro } from "./modules/Financeiro";
+
+import styles from "../styles/Table.module.css";
 
 export function PermissionTable() {
   const columns = [
