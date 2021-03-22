@@ -5,19 +5,19 @@
 <h1 align="center">Mobix Software Studio - Desafio Front End</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/JulianePires/javascript30?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/JulianePires/mobix-challenge?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/JulianePires/javascript30?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/JulianePires/mobix-challenge?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/JulianePires/javascript30?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/JulianePires/mobix-challenge?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/JulianePires/javascript30?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/JulianePires/mobix-challenge?color=56BEB8">
 
-  <img alt="Github issues" src="https://img.shields.io/github/issues/JulianePires/javascript30?color=56BEB8" />
+  <img alt="Github issues" src="https://img.shields.io/github/issues/JulianePires/mobix-challenge?color=56BEB8" />
 
-  <img alt="Github forks" src="https://img.shields.io/github/forks/JulianePires/javascript30?color=56BEB8" />
+  <img alt="Github forks" src="https://img.shields.io/github/forks/JulianePires/mobix-challenge?color=56BEB8" />
 
-  <img alt="Github stars" src="https://img.shields.io/github/stars/JulianePires/javascript30?color=56BEB8" />
+  <img alt="Github stars" src="https://img.shields.io/github/stars/JulianePires/mobix-challenge?color=56BEB8" />
 </p>
 
 ## :rocket: Technologies ##
